@@ -1,4 +1,4 @@
-# Disk size analysis
+# Disk space analysis
 
 ## Usage
 
