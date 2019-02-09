@@ -27,7 +27,6 @@ while getopts ":hqvs:f:" o; do case "${o}" in
 esac done
 
 # Defaults
-echo "$folderToStoreFilesPath <-"
 
 [ -z "$startInspectionFromPath" ] && startInspectionFromPath="/c"
 [ -z "$folderToStoreFilesPath" ] && folderToStoreFilesPath="$HOME/Desktop/disk-analysis"
