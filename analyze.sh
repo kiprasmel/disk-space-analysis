@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 # analyze.sh
 
 # Options & variables
@@ -16,7 +16,7 @@ usage() {
 	exit;
 }
 
-# note - the first : turns on production mode; the : after a letter indicate that an option must provide an argument.
+# note - the first ':' turns on production mode; the ':' after a letter indicates that an option must provide an argument.
 while getopts ":hqvs:f:" o; do case "${o}" in
 	h) usage ;;
 	q) mode="quiet" ;;
