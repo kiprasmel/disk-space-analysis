@@ -41,14 +41,15 @@ esac done
 cd ${folderToStoreFilesPath}
 
 if [ "$mode" = "quiet" ]; then
-	du -h ${startInspectionFromPath} | tee "${folderToStoreFilesPath}/disk-sizes.txt" | sort -hr | tee "${folderToStoreFilesPath}/sorted-disk-sizes.txt" | head > "${folderToStoreFilesPath}/grouped-sorted-sizes.txt"
+	du -h ${startInspectionFromPath} | tee "${folderToStoreFilesPath}/1-file-sizes.txt" | sort -hr | tee "${folderToStoreFilesPath}/2-sorted-file-sizes.txt" | head > "${folderToStoreFilesPath}/3-sorted-and-grouped-file-sizes.txt"
 
 elif [ "$mode" = "verbose" ]; then
-	du -h ${startInspectionFromPath} | tee "${folderToStoreFilesPath}/disk-sizes.txt" 
-	cat disk-sizes.txt | sort -hr | tee "${folderToStoreFilesPath}/sorted-disk-sizes.txt"
-	cat sorted-disk-sizes.txt | head | tee "${folderToStoreFilesPath}/grouped-sorted-sizes.txt"
+	du -h ${startInspectionFromPath} | tee "${folderToStoreFilesPath}/1-file-sizes.txt" 
+	cat disk-sizes.txt | sort -hr | tee "${folderToStoreFilesPath}/2-sorted-file-sizes.txt"
+	cat sorted-disk-sizes.txt | head | tee "${folderToStoreFilesPath}/3-sorted-and-grouped-file-sizes.txt"
 else
-	echo "Error! No mode / bad mode selected" && exit 1;
+	printf "\nError! No mode / bad mode selected\n" && exit 1;
 fi
 
-echo "\nDone."
+printf "\nanalyze.sh finished. Exiting.\n" && exit 0;
+
